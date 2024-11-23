@@ -120,61 +120,6 @@
 
 
   
-    <article id="post-C++——vector" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/22/C++%E2%80%94%E2%80%94vector/" class="article-date">
-  <time class="dt-published" datetime="2024-11-22T13:38:12.041Z" itemprop="datePublished">2024-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="C-基础内容学习（算法需要）"><a href="#C-基础内容学习（算法需要）" class="headerlink" title="C++基础内容学习（算法需要）#"></a>C++基础内容学习（算法需要）#</h1><p>##&emsp;C++的vector容器##</p>
-<p><strong>介绍</strong>：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。</p>
-<p><strong>特点</strong>：1.连续存储；2.动态变化；3.存储元素多样</p>
-<p><em>注意：需有头文件<code>#include&lt;vector&gt;</code></em></p>
-<p>##用法：<br>###创建vector<br><code>std::vector&lt;int&gt; Vector;</code> &#x2F;&#x2F; 创建一个存储整数的空 vector</p>
-<p><code>std::vector&lt;int&gt; Vector(5);</code> &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为默认值（0）</p>
-<p><code>std::vector&lt;int&gt; Vector(5, 10);</code> &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为 10</p>
-<p><code>std::vector&lt;int&gt; vec;</code> &#x2F;&#x2F; 默认初始化一个空的 vector</p>
-<p><code>std::vector&lt;int&gt; vec2 = &#123;1, 2, 3, 4&#125;;</code> &#x2F;&#x2F; 初始化一个包含元素的 vector</p>
-<p>###添加元素<br>可以使用 push_back 方法向 vector 中添加元素：</p>
-<p><code>Vector.push_back(7);</code> &#x2F;&#x2F; 将整数 7 添加到 vector 的末尾</p>
-<p>###访问元素<br>可以使用下标操作符 [] 或 at() 方法访问 vector 中的元素：</p>
-<p><code>int x = Vector[0];</code> &#x2F;&#x2F; 获取第一个元素</p>
-<p><code>int y = Vector.at(1); </code>&#x2F;&#x2F; 获取第二个元素<br>###获取大小<br>可以使用 size() 方法获取 vector 中元素的数量：<br><code>int size = Vector.size();</code> &#x2F;&#x2F; 获取 vector 中的元素数量</p>
-<p>###迭代访问<br>可以使用迭代器遍历 vector 中的元素：</p>
-<pre><code>for (auto it = Vector.begin(); it != Vector.end(); ++it) &#123;
-    std::cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
-&#125;
-</code></pre>
-<p>或者使用范围循环：</p>
-<pre><code>for (int element : Vector) &#123;
-    std::cout &lt;&lt; element &lt;&lt; &quot; &quot;;
-&#125;
-</code></pre>
-<p>###删除元素<br>可以使用 erase() 方法删除 vector 中的元素：<br><code>myVector.erase(Vector.begin() + 2); </code>&#x2F;&#x2F; 删除第三个元素</p>
-<p>###清空Vector<br>可以使用 clear() 方法清空 vector 中的所有元素</p>
-<p><code>Vector.clear();</code> &#x2F;&#x2F; 清空 vector</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/11/22/C++%E2%80%94%E2%80%94vector/" data-id="cm3tve9680000w0td1k2ic89s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
@@ -207,10 +152,6 @@
         
           <li>
             <a href="/2024/11/22/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/22/C++%E2%80%94%E2%80%94vector/">(no title)</a>
           </li>
         
       </ul>
