@@ -6,11 +6,15 @@
   
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: url、href、src区分 date: 2024年11月24日15点59分 tags: HTML 内容源自简单介绍一下url、href、src到底是什么？可能好多人不太明白-CSDN博客 url、href、src区分1.先说结论主要区别应该放在href与src身上，url是个基础的概念，是前两位的其中一部分。 区别主要为：（1）请求资源类型不同（2）作用结果不同（3）浏览器解析方式">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title: url、href、src区分 date: 2024年11月24日15点59分 tags: HTML 内容源自简单介绍一下url、href、src到底是什么？可能好多人不太明白-CSDN博客 url、href、src区分1.先说结论主要区别应该放在href与src身上，url是个基础的概念，是前两位的其中一部分。 区别主要为：（1）请求资源类型不同（2）作用结果不同（3）浏览器解析方式">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-23T14:52:38.774Z">
+<meta property="article:modified_time" content="2024-11-24T08:39:54.968Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -67,9 +71,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-url、src、href的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-url、src、href的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
   <time class="dt-published" datetime="2024-11-23T14:52:38.774Z" itemprop="datePublished">2024-11-23</time>
@@ -125,126 +127,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-C-learn01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/23/C-learn01/" class="article-date">
-  <time class="dt-published" datetime="2024-11-23T08:07:47.000Z" itemprop="datePublished">2024-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/23/C-learn01/">C++ learn--Vector</a>
-    </h1>
+    <a href="/2024/11/23/C-learn01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">C++ learn--Vector</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="C-基础内容学习（算法需要）"><a href="#C-基础内容学习（算法需要）" class="headerlink" title="C++基础内容学习（算法需要）"></a>C++基础内容学习（算法需要）</h1><h2 id="C-的vector容器"><a href="#C-的vector容器" class="headerlink" title="C++的vector容器#"></a>C++的vector容器#</h2><p>介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。</p>
-<p>特点：1.连续存储；2.动态变化；3.存储元素多样</p>
-<p>注意：需有头文件<code>#include&lt;vector&gt;</code></p>
-<h2 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h2><h3 id="创建vector"><a href="#创建vector" class="headerlink" title="创建vector"></a>创建vector</h3><p><code>std::vector&lt;int&gt; Vector;</code> &#x2F;&#x2F; 创建一个存储整数的空 vector</p>
-<p><code>std::vector&lt;int&gt; Vector(5);</code> &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为默认值（0）</p>
-<p><code>std::vector&lt;int&gt; Vector(5, 10);</code> &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为 10</p>
-<p><code>std::vector&lt;int&gt; vec;</code> &#x2F;&#x2F; 默认初始化一个空的 vector</p>
-<p><code>std::vector&lt;int&gt; vec2 = &#123;1, 2, 3, 4&#125;;</code> &#x2F;&#x2F; 初始化一个包含元素的 vector</p>
-<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><p>可以使用 push_back 方法向 vector 中添加元素：<br><code> Vector.push_back(7);</code> &#x2F;&#x2F; 将整数 7 添加到 vector 的末尾</p>
-<h3 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h3><p>可以使用下标操作符 [] 或 at() 方法访问 vector 中的元素：</p>
-<p><code>int x = Vector[0];</code> &#x2F;&#x2F; 获取第一个元素</p>
-<p><code>int y = Vector.at(1);</code> &#x2F;&#x2F; 获取第二个元素</p>
-<h3 id="获取大小"><a href="#获取大小" class="headerlink" title="获取大小"></a>获取大小</h3><p>可以使用 size() 方法获取 vector 中元素的数量：<br><code>int size = Vector.size();</code> &#x2F;&#x2F; 获取 vector 中的元素数量</p>
-<h3 id="迭代访问"><a href="#迭代访问" class="headerlink" title="迭代访问"></a>迭代访问</h3><p>可以使用迭代器遍历 vector 中的元素：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (auto it = Vector.begin(); </span><br><span class="line">		it != Vector.end(); ++it)&#123;</span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>或者使用范围循环：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (int element : Vector)&#123;</span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt; element &lt;&lt; &quot; &quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><p>可以使用 erase() 方法删除 vector 中的元素：<br><code>myVector.erase(Vector.begin() + 2);</code> &#x2F;&#x2F; 删除第三个元素</p>
-<h3 id="清空Vector"><a href="#清空Vector" class="headerlink" title="清空Vector"></a>清空Vector</h3><p>可以使用 clear() 方法清空 vector 中的所有元素</p>
-<p><code>Vector.clear();</code> &#x2F;&#x2F; 清空 vector</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/11/23/C-learn01/" data-id="cm3txda540001lctd4p9b6ocw" data-title="C++ learn--Vector" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95C/" rel="tag">算法C++</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/22/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-11-22T14:25:22.705Z" itemprop="datePublished">2024-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/11/22/hello-world/" data-id="cm3txda510000lctd6p548ltg" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>

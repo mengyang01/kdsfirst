@@ -6,17 +6,17 @@
   
   <title>C++ learn--Vector | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="C++基础内容学习（算法需要）#C++的vector容器## 介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。  特点：1.连续存储；2.动态变化；3.存储元素多样  注意：需有头文件#include&lt;vector&gt; 用法：创建vectorstd::vector&lt;int&gt; Vector; &#x2F;&#x2F; 创建一个">
+  <meta name="description" content="C++基础内容学习（算法需要）C++的vector容器#介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。 特点：1.连续存储；2.动态变化；3.存储元素多样 注意：需有头文件#include&lt;vector&gt; 用法：创建vectorstd::vector&lt;int&gt; Vector; &#x2F;&#x2F; 创建一个存储整数的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ learn--Vector">
 <meta property="og:url" content="http://example.com/2024/11/23/C-learn01/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="C++基础内容学习（算法需要）#C++的vector容器## 介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。  特点：1.连续存储；2.动态变化；3.存储元素多样  注意：需有头文件#include&lt;vector&gt; 用法：创建vectorstd::vector&lt;int&gt; Vector; &#x2F;&#x2F; 创建一个">
+<meta property="og:description" content="C++基础内容学习（算法需要）C++的vector容器#介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。 特点：1.连续存储；2.动态变化；3.存储元素多样 注意：需有头文件#include&lt;vector&gt; 用法：创建vectorstd::vector&lt;int&gt; Vector; &#x2F;&#x2F; 创建一个存储整数的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-11-23T08:07:47.000Z">
-<meta property="article:modified_time" content="2024-11-23T08:44:25.229Z">
+<meta property="article:modified_time" content="2024-11-24T01:03:56.096Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="C++ learn">
+<meta property="article:tag" content="算法C++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -94,11 +94,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="C-基础内容学习（算法需要）"><a href="#C-基础内容学习（算法需要）" class="headerlink" title="C++基础内容学习（算法需要）#"></a>C++基础内容学习（算法需要）#</h1><h2 id="C-的vector容器"><a href="#C-的vector容器" class="headerlink" title="C++的vector容器##"></a>C++的vector容器##</h2><br>
-介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。
-<br>
-特点：1.连续存储；2.动态变化；3.存储元素多样
-
+        <h1 id="C-基础内容学习（算法需要）"><a href="#C-基础内容学习（算法需要）" class="headerlink" title="C++基础内容学习（算法需要）"></a>C++基础内容学习（算法需要）</h1><h2 id="C-的vector容器"><a href="#C-的vector容器" class="headerlink" title="C++的vector容器#"></a>C++的vector容器#</h2><p>介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。</p>
+<p>特点：1.连续存储；2.动态变化；3.存储元素多样</p>
 <p>注意：需有头文件<code>#include&lt;vector&gt;</code></p>
 <h2 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h2><h3 id="创建vector"><a href="#创建vector" class="headerlink" title="创建vector"></a>创建vector</h3><p><code>std::vector&lt;int&gt; Vector;</code> &#x2F;&#x2F; 创建一个存储整数的空 vector</p>
 <p><code>std::vector&lt;int&gt; Vector(5);</code> &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为默认值（0）</p>
@@ -111,16 +108,16 @@
 <p><code>int y = Vector.at(1);</code> &#x2F;&#x2F; 获取第二个元素</p>
 <h3 id="获取大小"><a href="#获取大小" class="headerlink" title="获取大小"></a>获取大小</h3><p>可以使用 size() 方法获取 vector 中元素的数量：<br><code>int size = Vector.size();</code> &#x2F;&#x2F; 获取 vector 中的元素数量</p>
 <h3 id="迭代访问"><a href="#迭代访问" class="headerlink" title="迭代访问"></a>迭代访问</h3><p>可以使用迭代器遍历 vector 中的元素：</p>
-<p>for (auto it &#x3D; Vector.begin(); it !&#x3D; Vector.end(); ++it){</p>
-<p>&emsp;std::cout &lt;&lt; *it &lt;&lt; “ “;</p>
-<p>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (auto it = Vector.begin(); </span><br><span class="line">		it != Vector.end(); ++it)&#123;</span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>或者使用范围循环：</p>
-<p>for (int element : Vector){</p>
-<p>&emsp;std::cout &lt;&lt; element &lt;&lt; “ “;</p>
-<p>}</p>
-<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><p>可以使用 erase() 方法删除 vector 中的元素：<br>myVector.erase(Vector.begin() + 2); &#x2F;&#x2F; 删除第三个元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (int element : Vector)&#123;</span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt; element &lt;&lt; &quot; &quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><p>可以使用 erase() 方法删除 vector 中的元素：<br><code>myVector.erase(Vector.begin() + 2);</code> &#x2F;&#x2F; 删除第三个元素</p>
 <h3 id="清空Vector"><a href="#清空Vector" class="headerlink" title="清空Vector"></a>清空Vector</h3><p>可以使用 clear() 方法清空 vector 中的所有元素</p>
-<p>Vector.clear(); &#x2F;&#x2F; 清空 vector</p>
+<p><code>Vector.clear();</code> &#x2F;&#x2F; 清空 vector</p>
 
       
     </div>
@@ -129,13 +126,22 @@
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-learn/" rel="tag">C++ learn</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95C/" rel="tag">算法C++</a></li></ul>
 
     </footer>
   </div>
   
     
 <nav id="article-nav">
+  
+    <a href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2024/11/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
@@ -160,7 +166,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-learn/" rel="tag">C++ learn</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95C/" rel="tag">算法C++</a></li></ul>
     </div>
   </div>
 
@@ -170,7 +176,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C-learn/" style="font-size: 10px;">C++ learn</a>
+      <a href="/tags/%E7%AE%97%E6%B3%95C/" style="font-size: 10px;">算法C++</a>
     </div>
   </div>
 
@@ -190,6 +196,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2024/11/23/C-learn01/">C++ learn--Vector</a>
