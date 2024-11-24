@@ -1,361 +1,158 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
 
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
   
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
   
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/" title="url、href、src区分">url、href、src区分</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-23T14:52:38.774Z" title="Created 2024-11-23 22:52:38">2024-11-23</time></span></div><div class="content">内容源自简单介绍一下url、href、src到底是什么？可能好多人不太明白-CSDN博客 url、href、src区分1.先说结论主要区别应该放在href与src身上，url是个基础的概念，是前两位的其中一部分。 区别主要为：（1）请求资源类型不同（2）作用结果不同（3）浏览器解析方式不同 （1）请求资源类型不同href 指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的联系。靠浏览器检索并显示 href 属性指定的 URL 所表示的文档 src会将其指向的资源下载并直接应用到文档中,比如 JavaScript 脚本，img 图片； （2）作用结果不同href 用于在当前文档和引用资源之间确立联系；；src 用于替换当前内容； （3）浏览器解析方式不同若在文档中添加href ，浏览器会识别该文档为 CSS 文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用 link 方式加载 CSS，而不是使用 @import 方式。 当浏览器解析到src...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/11/23/C-learn01/" title="C++ learn--Vector">C++ learn--Vector</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-23T08:07:47.000Z" title="Created 2024-11-23 16:07:47">2024-11-23</time></span></div><div class="content">C++基础内容学习（算法需要）C++的vector容器#介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。 特点：1.连续存储；2.动态变化；3.存储元素多样 注意：需有头文件#include&lt;vector&gt; 用法：创建vectorstd::vector&lt;int&gt; Vector; &#x2F;&#x2F; 创建一个存储整数的空 vector std::vector&lt;int&gt; Vector(5); &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为默认值（0） std::vector&lt;int&gt; Vector(5, 10); &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为 10 std::vector&lt;int&gt; vec; &#x2F;&#x2F; 默认初始化一个空的 vector std::vector&lt;int&gt; vec2 = &#123;1, 2, 3, 4&#125;; &#x2F;&#x2F;...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2024/11/22/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-22T14:25:22.705Z" title="Created 2024-11-22 22:25:22">2024-11-22</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/" title="url、href、src区分">url、href、src区分</a><time datetime="2024-11-23T14:52:38.774Z" title="Created 2024-11-23 22:52:38">2024-11-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/11/23/C-learn01/" title="C++ learn--Vector">C++ learn--Vector</a><time datetime="2024-11-23T08:07:47.000Z" title="Created 2024-11-23 16:07:47">2024-11-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2024/11/22/hello-world/" title="Hello World">Hello World</a><time datetime="2024-11-22T14:25:22.705Z" title="Created 2024-11-22 22:25:22">2024-11-22</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%AE%97%E6%B3%95C/" style="font-size: 1.1em; color: #999">算法C++</a> <a href="/tags/HTML/" style="font-size: 1.1em; color: #999">HTML</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>Archives</span>
       
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
+    <ul class="card-archive-list">
   
-    <article id="post-url、src、href的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
-  <time class="dt-published" datetime="2024-11-23T14:52:38.774Z" itemprop="datePublished">2024-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/">url、href、src区分</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>内容源自<a target="_blank" rel="noopener" href="https://blog.csdn.net/rocling/article/details/82954538?ops_request_misc=%7B%22request_id%22:%22c41e0c0b58a0ffe5be9c45a6cedb5314%22,%22scm%22:%2220140713.130102334.pc_all.%22%7D&request_id=c41e0c0b58a0ffe5be9c45a6cedb5314&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-12-82954538-null-null.142%5Ev100%5Epc_search_result_base1&utm_term=url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB&spm=1018.2226.3001.4187">简单介绍一下url、href、src到底是什么？可能好多人不太明白-CSDN博客</a></p>
-<h1 id="url、href、src区分"><a href="#url、href、src区分" class="headerlink" title="url、href、src区分"></a>url、href、src区分</h1><h3 id="1-先说结论"><a href="#1-先说结论" class="headerlink" title="1.先说结论"></a>1.先说结论</h3><p>主要区别应该放在<code>href</code>与<code>src</code>身上，url是个基础的概念，是前两位的其中一部分。</p>
-<p>区别主要为：（1）<strong>请求资源类型不同</strong>（2）<strong>作用结果不同</strong>（3）<strong>浏览器解析方式不同</strong></p>
-<h4 id="（1）请求资源类型不同"><a href="#（1）请求资源类型不同" class="headerlink" title="（1）请求资源类型不同"></a>（1）<strong>请求资源类型不同</strong></h4><p><code>href</code> 指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的联系。靠浏览器检索并显示 <code>href</code> 属性指定的 URL 所表示的文档</p>
-<p><code>src</code>会将其指向的资源下载并直接应用到文档中,比如 JavaScript 脚本，img 图片；</p>
-<h4 id="（2）作用结果不同"><a href="#（2）作用结果不同" class="headerlink" title="（2）作用结果不同"></a>（2）<strong>作用结果不同</strong></h4><p><code>href</code> 用于在当前文档和引用资源之间确立联系；；<code>src</code> 用于替换当前内容；</p>
-<h4 id="（3）浏览器解析方式不同"><a href="#（3）浏览器解析方式不同" class="headerlink" title="（3）浏览器解析方式不同"></a>（3）<strong>浏览器解析方式不同</strong></h4><p>若在文档中添加<code>href</code> ，浏览器会识别该文档为 CSS 文件，就会<strong>并行下载资源并且<span style="color:red;">不会停止</span>对当前文档的处理。</strong>这也是为什么建议使用 link 方式加载 CSS，而不是使用 @import 方式。</p>
-<p>当浏览器解析到<code>src</code> ，会**<span style="color:red;">暂停</span>其他资源的下载和处理，**直到将该资源加载、编译、执行完毕，图片和框架等也如此，类似于将所指向资源应用到当前内容。这也是为什么建议把 js 脚本放在底部而不是头部的原因。</p>
-<h3 id="2-简单理解url"><a href="#2-简单理解url" class="headerlink" title="2.简单理解url"></a>2.简单理解url</h3><h4 id="（一）简介"><a href="#（一）简介" class="headerlink" title="（一）简介"></a>（一）简介</h4><p>全名为“统一资源定位符”，是Uniform Resource Locator的缩写。有时称为“URL地址”、“统一资源定位器”，俗称为“网页地址”或“网址”。</p>
-<h4 id="（二）格式"><a href="#（二）格式" class="headerlink" title="（二）格式"></a>（二）格式</h4><p><strong>标准格式</strong>：<code>协议类型:[//服务器地址[:端口号]] [/资源层级UNIX文件路径]文件名?查询</code></p>
-<p><strong>完整格式</strong>：<code>协议类型:[//[访问资源需要的凭证信息@]服务器地址[:端口号]] [/资源层级UNIX文件路径]文件名?查询</code></p>
-<p>其中【访问凭证信息@；:端口号；?查询；#片段ID】都属于选填项。</p>
-<h4 id="（三）语法规则"><a href="#（三）语法规则" class="headerlink" title="（三）语法规则"></a>（三）语法规则</h4><p><code>scheme://host.domain:port/path/filename</code>，比如<a target="_blank" rel="noopener" href="http://segmentfault.com/html/index.asp">http://segmentfault.com/html/index.asp</a></p>
-<p>简单解读一下：</p>
-<p>1.<strong>scheme</strong>，指的是因特网服务的类型，常见的http（不加密），https（加密）等；</p>
-<p>2.<strong>host</strong>，定义域主机，http的默认主机是www</p>
-<p>3.<strong>domain</strong>，定义因特网域名，给ip起个名字，方便人们记忆，如<code>wikipedia.org</code></p>
-<p>4.<strong>port</strong>，定义主机上的端口号，http默认端口号是80</p>
-<p>5.<strong>path</strong>，定义服务器上的路径（若要省略此部分，文档必须得在网站根目录）</p>
-<p>6.<strong>filename</strong>，文档资源的名称</p>
-<h4 id="（四）绝对与相对URL"><a href="#（四）绝对与相对URL" class="headerlink" title="（四）绝对与相对URL"></a>（四）绝对与相对URL</h4><p><strong>绝对URL</strong>（absolute URL）显示文件的完整路径，这意味着绝对URL本身所在的位置与被引用的实际文件的位置 <strong>无关</strong>。</p>
-<p><strong>相对URL</strong>（relative URL）以包含URL本身的文件夹的位置为 <strong>参考点</strong>，描述目标文件夹的位置。</p>
-<h3 id="3-简单理解href"><a href="#3-简单理解href" class="headerlink" title="3.简单理解href"></a>3.简单理解href</h3><p>href (Hypertext Reference)指定网络资源的位置，从而在当前元素或者当前文档和由当前属性定义的需要的锚点或资源之间定义一个链接或者关系。浏览器会尝试检索并显示 <code>href</code> 属性指定的 URL 所表示的文档</p>
-<p>如同桥梁，建立标签与目标的联系。如<code>&lt;a href=&quot;URL&quot;&gt;</code>这样的</p>
-<h3 id="4-简单理解src"><a href="#4-简单理解src" class="headerlink" title="4.简单理解src"></a>4.简单理解src</h3><p>“src”是指源代码（source code）的缩写，指向外部资源位置，其内容会直接应用到文档中当前标签所在位置。</p>
-<h3 id="5-link与-import的区别"><a href="#5-link与-import的区别" class="headerlink" title="5.link与@import的区别"></a>5.link与@import的区别</h3><p>两者都是外部引用 CSS 的方式，但是存在一定的区别：</p>
-<p>（1）link是XHTML标签，除了能够加载CSS，还可以定义RSS等其他事务；而@import属于CSS范畴，只可以加载CSS。</p>
-<p>（2）link引用CSS时，在页面载入时同时加载；@import需要页面完全载入以后再加载。</p>
-<p>（3）link是XHTML标签，无兼容问题；@import则是在CSS2.1提出的，低版本的浏览器不支持。</p>
-<p>（4）link支持使用Javascript控制DOM改变样式；而@import不支持。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="cm3vcmza50000lgtd1p8ddbuq" data-title="url、href、src区分" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-C-learn01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/23/C-learn01/" class="article-date">
-  <time class="dt-published" datetime="2024-11-23T08:07:47.000Z" itemprop="datePublished">2024-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/23/C-learn01/">C++ learn--Vector</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="C-基础内容学习（算法需要）"><a href="#C-基础内容学习（算法需要）" class="headerlink" title="C++基础内容学习（算法需要）"></a>C++基础内容学习（算法需要）</h1><h2 id="C-的vector容器"><a href="#C-的vector容器" class="headerlink" title="C++的vector容器#"></a>C++的vector容器#</h2><p>介绍：vector用于动态插入和删除元素，基于数组的数据结构，非常方便，能自动分配空间以及释放空间。</p>
-<p>特点：1.连续存储；2.动态变化；3.存储元素多样</p>
-<p>注意：需有头文件<code>#include&lt;vector&gt;</code></p>
-<h2 id="用法："><a href="#用法：" class="headerlink" title="用法："></a>用法：</h2><h3 id="创建vector"><a href="#创建vector" class="headerlink" title="创建vector"></a>创建vector</h3><p><code>std::vector&lt;int&gt; Vector;</code> &#x2F;&#x2F; 创建一个存储整数的空 vector</p>
-<p><code>std::vector&lt;int&gt; Vector(5);</code> &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为默认值（0）</p>
-<p><code>std::vector&lt;int&gt; Vector(5, 10);</code> &#x2F;&#x2F; 创建一个包含 5 个整数的 vector，每个值都为 10</p>
-<p><code>std::vector&lt;int&gt; vec;</code> &#x2F;&#x2F; 默认初始化一个空的 vector</p>
-<p><code>std::vector&lt;int&gt; vec2 = &#123;1, 2, 3, 4&#125;;</code> &#x2F;&#x2F; 初始化一个包含元素的 vector</p>
-<h3 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h3><p>可以使用 push_back 方法向 vector 中添加元素：<br><code> Vector.push_back(7);</code> &#x2F;&#x2F; 将整数 7 添加到 vector 的末尾</p>
-<h3 id="访问元素"><a href="#访问元素" class="headerlink" title="访问元素"></a>访问元素</h3><p>可以使用下标操作符 [] 或 at() 方法访问 vector 中的元素：</p>
-<p><code>int x = Vector[0];</code> &#x2F;&#x2F; 获取第一个元素</p>
-<p><code>int y = Vector.at(1);</code> &#x2F;&#x2F; 获取第二个元素</p>
-<h3 id="获取大小"><a href="#获取大小" class="headerlink" title="获取大小"></a>获取大小</h3><p>可以使用 size() 方法获取 vector 中元素的数量：<br><code>int size = Vector.size();</code> &#x2F;&#x2F; 获取 vector 中的元素数量</p>
-<h3 id="迭代访问"><a href="#迭代访问" class="headerlink" title="迭代访问"></a>迭代访问</h3><p>可以使用迭代器遍历 vector 中的元素：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (auto it = Vector.begin(); </span><br><span class="line">		it != Vector.end(); ++it)&#123;</span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt; *it &lt;&lt; &quot; &quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>或者使用范围循环：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (int element : Vector)&#123;</span><br><span class="line"></span><br><span class="line">	std::cout &lt;&lt; element &lt;&lt; &quot; &quot;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><p>可以使用 erase() 方法删除 vector 中的元素：<br><code>myVector.erase(Vector.begin() + 2);</code> &#x2F;&#x2F; 删除第三个元素</p>
-<h3 id="清空Vector"><a href="#清空Vector" class="headerlink" title="清空Vector"></a>清空Vector</h3><p>可以使用 clear() 方法清空 vector 中的所有元素</p>
-<p><code>Vector.clear();</code> &#x2F;&#x2F; 清空 vector</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/11/23/C-learn01/" data-id="cm3txda540001lctd4p9b6ocw" data-title="C++ learn--Vector" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95C/" rel="tag">算法C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/11/22/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-11-22T14:25:22.705Z" itemprop="datePublished">2024-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/11/22/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/11/22/hello-world/" data-id="cm3txda510000lctd6p548ltg" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95C/" rel="tag">算法C++</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/%E7%AE%97%E6%B3%95C/" style="font-size: 10px;">算法C++</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/11/23/url%E3%80%81src%E3%80%81href%E7%9A%84%E5%8C%BA%E5%88%AB/">url、href、src区分</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/23/C-learn01/">C++ learn--Vector</a>
-          </li>
-        
-          <li>
-            <a href="/2024/11/22/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2024/11/">
+          <span class="card-archive-list-date">November 2024</span>
+          <span class="card-archive-list-count">3</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">3</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-24T09:08:56.620Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
